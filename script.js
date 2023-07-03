@@ -10,11 +10,15 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+}
 
   
 function generatePassword() {
   var length = prompt("Enter the length of the password (between 8 and 128 characters):");
-  if (length < 8 || length > 128) {
+  // var strNum = "12"
+  var lengthNum = Number.parseInt(length)
+  console.log(typeof length, typeof lengthNum)
+  if (lengthNum < 8 || lengthNum > 128) {
     alert("Please enter a valid length between 8 and 128 characters.");
     return;
   }
@@ -29,9 +33,39 @@ function generatePassword() {
     return;
   }
 
+  var chars = []
+  var lowercaseChars = "abcdefghijklmnopqrstuvwxyz".split("")
+  var uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
+  var numberChars = "1234567890".split("")
+  var symbols = "!@#$%^&*()_+=-{}[]:;,.<>/?~`".split("")
+ 
+if (lowercase) {
+  chars = chars.concat(lowercaseChars)
 }
 
+
+
+ var result =[]
+
+
+for (let i = 0; i < lengthNum; i++) {
+  console.log(chars[i])
+var randomChar = chars[Math.round(Math.random() * chars.length)]
+console.log(randomChar)
+  result.push(randomChar)
+
+  
 }
+ 
+ console.log(result)
+
+
+
+
+  
+  return result.join(" ")
+}
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
