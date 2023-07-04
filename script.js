@@ -34,13 +34,25 @@ function generatePassword() {
   }
 
   var chars = []
-  var lowercaseChars = "abcdefghijklmnopqrstuvwxyz".split("")
-  var uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
-  var numberChars = "1234567890".split("")
-  var symbols = "!@#$%^&*()_+=-{}[]:;,.<>/?~`".split("")
+  var lowercaseChars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+  var uppercaseChars = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+  var numberChars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+  var symbols = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '=', '-', '{', '}', '[', ']', ':', ';', ',', '.', '<', '>', '/', '?', '~', '`']
  
 if (lowercase) {
   chars = chars.concat(lowercaseChars)
+}
+
+if (uppercase) {
+  chars = chars.concat(uppercaseChars)
+}
+
+if (numbers) {
+  chars = chars.concat(numberChars)
+}
+
+if (specialChars) {
+  chars = chars.concat(symbols)
 }
 
 
@@ -49,7 +61,7 @@ if (lowercase) {
 
 
 for (let i = 0; i < lengthNum; i++) {
-  console.log(chars[i])
+
 var randomChar = chars[Math.round(Math.random() * chars.length)]
 console.log(randomChar)
   result.push(randomChar)
@@ -63,7 +75,7 @@ console.log(randomChar)
 
 
   
-  return result.join(" ")
+  return result.join("")
 }
 
 
